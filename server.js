@@ -1,7 +1,12 @@
+// connect to database
+var mongoose   = require('mongoose');
+mongoose.connect("mongodb://localhost/api-test");
+
 // call packages needed
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var Quote = require('./app/models/quotes');
 
 // configure app to use bodyParser()
 app.use(bodyParser.urlencoded({ extended: true }));
