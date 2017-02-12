@@ -56,6 +56,17 @@ router.route('/quotes')
     });
   });
 
+  // routes that end in /quotes/:quote_id
+  router.route('/quotes/:quote_id')
+    // get the quote with that id
+    .get(function(req, res) {
+      Quote.findById(req.params.quote_id, function(err, quote) {
+        if (err)
+          res.send(err);
+        res.json(quote);
+      });
+    });
+
 // register routes
 app.use('/api', router);
 
