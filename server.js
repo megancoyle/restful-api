@@ -65,6 +65,27 @@ router.route('/quotes')
           res.send(err);
         res.json(quote);
       });
+    })
+
+      // update the quote with this id
+      .put(function(req, res) {
+
+        // use quote model to find the quote we want to update
+        Quote.findById(req.params.quote_id, function(err, quote) {
+
+          if (err)
+            res.send(err);
+
+          quote.text = req.body.text; // update quotes info
+
+          // save quote
+          quote.save(function(err) {
+            if (err)
+              res.send(err);
+
+            res.json({ message: 'Quote updated!' });
+          });
+      });
     });
 
 // register routes
