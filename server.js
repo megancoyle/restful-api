@@ -86,6 +86,17 @@ router.route('/quotes')
             res.json({ message: 'Quote updated!' });
           });
       });
+    })
+
+    .delete(function(req, res) {
+      Quote.remove({
+        _id: req.params.quote_id
+      }, function(err, bear) {
+        if (err)
+          res.send(err);
+
+        res.json({ message: 'Successfully deleted'});
+      });
     });
 
 // register routes
