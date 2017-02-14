@@ -35,6 +35,7 @@ router.route('/quotes')
   .post(function(req, res) {
 
     var quote = new Quote(); // create a new instance of Quote
+    quote.author = req.body.author;
     quote.text = req.body.text; // set the quote
 
     // save the quote and check for errors
@@ -75,7 +76,7 @@ router.route('/quotes')
 
           if (err)
             res.send(err);
-
+          quote.author = req.body.author;
           quote.text = req.body.text; // update quotes info
 
           // save quote
