@@ -2,6 +2,6 @@
 RESTful API built with Node.JS and Express.JS
 
 ## Technologies used
-* MongoDB
-* Node JS
-* Express JS
+* [MongoDB](https://www.mongodb.com/)
+* [Node JS](https://nodejs.org/en/)
+* [Express JS](http://expressjs.com/)
